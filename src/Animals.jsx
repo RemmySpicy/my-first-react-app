@@ -26,21 +26,44 @@
 // }
 
 
-function ListItem(props) {
-    return <li>{props.animal}</li>
-  }
+// function ListItem(props) {
+//     return <li>{props.animal}</li>
+//   }
   
-  function List(props) {
+//   function List(props) {
+//     return (
+//       <ul>
+//         {props.animals.map((animal) => {
+//           return <ListItem key={animal} animal={animal} />;
+//         })}
+//       </ul>
+//     );
+//   }
+  
+//   export default function App() {
+//     const animals = ["Lion", "Cow", "Snake", "Lizard", "Lion"];
+  
+//     return (
+//       <div>
+//         <h1>Animals: </h1>
+//         <List animals={animals} />
+//       </div>
+//     );
+//   }
+
+
+// Conditional rendering with ternary operator
+function List(props) {
     return (
       <ul>
         {props.animals.map((animal) => {
-          return <ListItem key={animal} animal={animal} />;
+          return animal.startsWith("L") ? <li key={animal}>{animal}</li> : null;
         })}
       </ul>
     );
   }
   
-  export default function App() {
+  function App() {
     const animals = ["Lion", "Cow", "Snake", "Lizard"];
   
     return (
@@ -49,4 +72,6 @@ function ListItem(props) {
         <List animals={animals} />
       </div>
     );
-  }
+  } 
+
+  export default App;
